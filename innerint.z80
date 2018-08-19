@@ -1,5 +1,5 @@
 SEMI:   *+2
-        LD C,{IX+0}
+        LD C,(IX)
         INC IX
         LD B,{IX+0}
         INC IX
