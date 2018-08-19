@@ -1,0 +1,30 @@
+SEMI:   *+2
+        LD C,{IX+0}
+        INC IX
+        LD B,{IX+0}
+        INC IX
+NEXT:   LD A,BC
+        LD L,A
+        INC BC
+        LD A,{BC}
+        LD H,A
+        INC BC
+RUN:    LD E,{HL}
+        INC HL
+        LD D,{HL}
+        INC HL
+        EX DE,HL
+        JP {HL}
+COLON:  DEC IX
+        LD {IX+0},B
+        DEC IX
+        LD {IX+0},C
+        LD C,E
+        LD B,D
+        JP {IY}
+        DATA 7,E,X,E
+        DATA 00
+EXECUTE:  *+2 *+2
+        POP HL
+        JR RUN
+        
